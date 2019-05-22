@@ -75,10 +75,10 @@ class AdminController extends Controller
             return redirect('/admin');
         }
     }
-    public function userDetails(){
+    public function userDetails($id){
         if($this->is_admin_login_check() != null){
             $active_list = 'active';
-            $user_info = UserCardInformation::whereIn('status',[1,2])->get()->all();
+            $user_info = UserCardInformation::findOrFail($id);
             $main_content = view('admin.user_details',compact('user_info'));
             return view('admin.master',compact('main_content','active_list'));
         }else{
