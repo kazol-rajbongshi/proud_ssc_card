@@ -10,6 +10,13 @@
                            value="" placeholder="Name">
                 </div>
             </div>
+                <div>
+                    <iframe src="http://www.educationboardresults.gov.bd/" height="600" width="670" >
+                        browser not supported
+                    </iframe>
+                </div>
+
+
 
         </div>
     </div>
