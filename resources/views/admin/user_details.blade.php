@@ -80,11 +80,7 @@
 
 
             <div class="col-lg-6 main_content" style="border-left: 2px solid #eae0e0;">
-
-                    <iframe src="http://www.educationboardresults.gov.bd/" style="height: 500px;width: 550px">
-                        browser not supported
-                    </iframe>
-
+                <iframe src="http://www.educationboardresults.gov.bd/" style="height: 500px;width: 550px">
             </div>
 
 

@@ -630,7 +630,21 @@
                     Active
                 </a>
               @endif
-              
+                @if(isset($active_list))
+                <a class="template active" href="{{url('request-form')}}">
+                    <!--<span class="sidebar_icon"><img src="{{asset('assets/img/send.png')}}" alt=""></span>-->
+                    <i class="fas fa-address-book"></i>
+                    Admin
+                </a>
+                @else
+                <a class="template" href="{{url('request-form')}}">
+                    <!--<span class="sidebar_icon"><img src="{{asset('assets/img/send.png')}}" alt=""></span>-->
+                    <i class="fas fa-user"></i>
+                    Admin
+                </a>
+                @endif
+
+
             </div>
 
         </div>

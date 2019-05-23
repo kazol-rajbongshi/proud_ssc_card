@@ -28,9 +28,15 @@ Route::post('/admin-logout','AdminController@adminLogout');
 Route::get('/pending-users','AdminController@pendingUsers');
 Route::get('/user-details/{id}','AdminController@userDetails');
 Route::get('/active-users','AdminController@activeUsers');
+
 Route::post('/save-extra-info-admin','AdminController@saveExtraInfoAdmin');
 Route::post('/change-user-status','AdminController@changeUserStatus');
 Route::post('/search-user','HomePageController@searchUser');
+
+Route::get('/request-form','AdminController@RequestForm');
+Route::post('/save-request-form','AdminController@saveRequestInformation');
+
+
 
 
 
