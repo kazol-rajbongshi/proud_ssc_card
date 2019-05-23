@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Carbon\Carbon;
+use DB;
 use App\UserCardInformation;
 
 class HomePageController extends Controller
@@ -57,6 +58,20 @@ class HomePageController extends Controller
         $flag = UserCardInformation::insert($data);
         return redirect('card-request-form')->with('card_add_success','Card request send successfully !');
     }
+
+    public function searchUser(Request $request){
+        
+        $card_number = DB::table('user_information')->where('card_number',$request->search_card)->first();
+        // echo "<pre>";
+        // print_r($card_number);
+        // exit();
+        if(isset($card_number)){
+            return redirect('/')->with('card_found_msg','User is active and verified');
+        }else{
+            return redirect('/')->with('card_notfound_msg','User is inactive and is not verified');
+        }      
+    }
+
 
     public function index()
     {

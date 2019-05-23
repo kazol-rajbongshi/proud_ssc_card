@@ -79,13 +79,47 @@ class AdminController extends Controller
         if($this->is_admin_login_check() != null){
             $active_list = 'active';
             $user_info = UserCardInformation::findOrFail($id);
-            $main_content = view('admin.user_details',compact('user_info'));
+            $main_content = view('admin.user_details',compact('user_info','id'));
             return view('admin.master',compact('main_content','active_list'));
         }else{
             return redirect('/admin');
         }
     }
 
+    public function saveExtraInfoAdmin(Request $request){
+        if ($this->is_admin_login_check() != null) {
+            $user_id = Session::get('current_admin_id');
+            $active_list = 'active';
+            $user_info = UserCardInformation::findOrFail($request->user_id);
+            $user_info->card_number = $request->card_number;
+            $user_info->validity_period = $request->validity_period;
+            $user_info->status = 1;
+            $user_info->save();
+            return redirect('/pending-users')->with('extra_info_msg','User information updated successfully.');
+        }else{
+            return redirect('/');
+        }
+    }
+
+    public function changeUserStatus(Request $request){
+        if($this->is_admin_login_check() != null){
+            $id = $request->id;
+            // return response()->json(['data'=>$id]);
+            $c_info = UserCardInformation::findOrFail($id);
+            if($c_info->status == 1){
+                UserCardInformation::where('id',$id)->update(array('status' => 2));
+            }elseif ($c_info->status == 2) {
+                UserCardInformation::where('id',$id)->update(array('status' => 1));
+            }
+            
+            $user_info = UserCardInformation::whereIn('status',[1,2])->get()->all();
+            // return redirect('/all-company-list')->with('suspend_msg','Company suspend successfully.');
+            return view('admin.ajax_active_list',compact('user_info'));
+        }else{
+            return response()->json(['data' => 2]);
+        }
+        
+    }
 
 
     public function index()
