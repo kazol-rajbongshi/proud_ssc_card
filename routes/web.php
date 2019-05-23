@@ -28,6 +28,9 @@ Route::post('/admin-logout','AdminController@adminLogout');
 Route::get('/pending-users','AdminController@pendingUsers');
 Route::get('/user-details/{id}','AdminController@userDetails');
 Route::get('/active-users','AdminController@activeUsers');
+Route::get('/request-form','AdminController@RequestForm');
+Route::post('/save-request-form','AdminController@saveRequestInformation');
+
 
 
 

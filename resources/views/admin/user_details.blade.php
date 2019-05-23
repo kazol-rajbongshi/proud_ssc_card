@@ -73,7 +73,7 @@
 
             <div class="col-lg-6 main_content" style="border-left: 2px solid #eae0e0;">
 
-                    <iframe src="http://www.educationboardresults.gov.bd/" height="600" width="550">
+                    <iframe src="http://www.educationboardresults.gov.bd/" height="670" width="550">
                         browser not supported
                     </iframe>
 
