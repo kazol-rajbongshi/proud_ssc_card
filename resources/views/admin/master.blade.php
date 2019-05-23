@@ -617,7 +617,7 @@
                 </a>
               @endif
 
-              @if(isset($active_list))
+              @if(isset($active_user_list))
                 <a class="template active" href="{{url('active-users')}}">
                     <!--<span class="sidebar_icon"><img src="{{asset('assets/img/send.png')}}" alt=""></span>-->
                     <i class="fas fa-address-book"></i>

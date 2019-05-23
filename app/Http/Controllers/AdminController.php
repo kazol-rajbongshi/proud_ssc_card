@@ -69,10 +69,10 @@ class AdminController extends Controller
     public function activeUsers(){
 
         if($this->is_admin_login_check() != null){
-            $active_list = 'active';
+            $active_user_list = 'active';
             $user_info = UserCardInformation::whereIn('status',[1,2])->get()->all();
             $main_content = view('admin.active_list',compact('user_info'));
-            return view('admin.master',compact('main_content','active_list'));
+            return view('admin.master',compact('main_content','active_user_list'));
         }else{
             return redirect('/admin');
         }

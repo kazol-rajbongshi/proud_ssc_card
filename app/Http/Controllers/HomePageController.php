@@ -61,7 +61,7 @@ class HomePageController extends Controller
 
     public function searchUser(Request $request){
         
-        $card_number = DB::table('user_information')->where('card_number',$request->search_card)->first();
+        $card_number = DB::table('user_information')->where([['card_number',$request->search_card],['status',1]])->first();
         // echo "<pre>";
         // print_r($card_number);
         // exit();
