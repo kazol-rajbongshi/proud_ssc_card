@@ -500,26 +500,27 @@
 
     <script type="text/javascript">
 
-      function suspend_user($id,$status){
+      function user_change_status($id,$status){
 
-        var change_msg = confirm('are you sure to '+$status+' this company?');
+        var change_msg = confirm('are you sure to '+$status+' this user?');
         if(change_msg){
 
           var id = $id;
           var token = $('meta[name="csrf-token"]').attr('content');
-          // console.log(id);
+          console.log(id);
           jQuery.ajax({
             type: "POST",
-            url: "{{URL::to('suspend-company-info')}}",
+            url: "{{URL::to('change-user-status')}}",
             data: {
             "_method": 'POST',
             "_token": token,
             "id":id
             },                     
            success: function(response){
-            $('#ajax_suspend_list').html(response);
-            // console.log(response.data);
             
+              $('#ajax_change_user_list').html(response);
+            // console.log(response.data);
+                       
            }
           });
 
@@ -616,7 +617,7 @@
                 </a>
               @endif
 
-              @if(isset($active_list))
+              @if(isset($active_user_list))
                 <a class="template active" href="{{url('active-users')}}">
                     <!--<span class="sidebar_icon"><img src="{{asset('assets/img/send.png')}}" alt=""></span>-->
                     <i class="fas fa-address-book"></i>
@@ -629,7 +630,21 @@
                     Active
                 </a>
               @endif
-              
+                @if(isset($active_list))
+                <a class="template active" href="{{url('request-form')}}">
+                    <!--<span class="sidebar_icon"><img src="{{asset('assets/img/send.png')}}" alt=""></span>-->
+                    <i class="fas fa-address-book"></i>
+                    Admin
+                </a>
+                @else
+                <a class="template" href="{{url('request-form')}}">
+                    <!--<span class="sidebar_icon"><img src="{{asset('assets/img/send.png')}}" alt=""></span>-->
+                    <i class="fas fa-user"></i>
+                    Admin
+                </a>
+                @endif
+
+
             </div>
 
         </div>
