@@ -24,7 +24,7 @@
                     <img src="{{URL::to('assets/img/logo.png')}}" alt="">
                 </a>
             </div>
-            
+
         </div>
 
     </div> -->
@@ -36,7 +36,7 @@
     <a href="#menu-toggle" class="btn btn-secondary" id="sidebar_toggle">
         <i class="fa fa-bars" aria-hidden="true"></i>
     </a>
-   
+
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -56,8 +56,11 @@
                         <button class="btn btn-info btn-lg" style="background-color: #06af94">ログイン</button>
                     </a> -->
                 </div>
+
             </div>
+
         </div>
+
 
     </div>
     <!-- /#page-content-wrapper -->
