@@ -79,27 +79,26 @@ class AdminController extends Controller
     }
     public function userDetails($id){
         if($this->is_admin_login_check() != null){
-            $active_list = 'active';
+            $active_pending_list = 'active';
             $user_info = UserCardInformation::findOrFail($id);
             $main_content = view('admin.user_details',compact('user_info','id'));
-            return view('admin.master',compact('main_content','active_list'));
+            return view('admin.master',compact('main_content','active_pending_list'));
         }else{
             return redirect('/admin');
         }
     }
-    public function userDetails($id){
-        if($this->is_admin_login_check() != null){
-            $active_list = 'active';
-            $user_info = UserCardInformation::findOrFail($id);
-            $main_content = view('admin.user_details',compact('user_info'));
-            return view('admin.master',compact('main_content','active_list'));
-        }else{
-            return redirect('/admin');
-        }
-    }
+    
 
     public function saveExtraInfoAdmin(Request $request){
         if ($this->is_admin_login_check() != null) {
+
+            $this->validate($request, [
+
+            'card_number' => 'required|unique:user_information',
+            'validity_period' => 'required'
+            
+        ]);
+
             $user_id = Session::get('current_admin_id');
             $active_list = 'active';
             $user_info = UserCardInformation::findOrFail($request->user_id);
@@ -158,8 +157,8 @@ class AdminController extends Controller
         $this->validate($request, [
 
             'name' => 'required',
-            'ssc_roll' => 'required',
-            'ssc_registartion' => 'required',
+            'ssc_roll' => 'required|unique:user_information',
+            'ssc_registartion' => 'required|unique:user_information',
             'ssc_board' => 'required',
             'address' => 'required',
             'photo' => 'image|mimes:jpg,jpeg,png,svg',

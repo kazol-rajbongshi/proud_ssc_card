@@ -7,6 +7,15 @@
                 <div class="">
 
                     <div style="margin-bottom: 20px;"><h3>User Information</h3></div>
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <div class="form-group row">
 
                             <img id="myImg" src="{{asset('uploads/'.$user_info->photo)}}" alt="{{$user_info->name}}" style="width:200px;height: 200px;margin-left: 15px;">
@@ -65,6 +74,7 @@
                     </div>
 
                     <hr>
+
                     <form action="{{url('save-extra-info-admin')}}" method="post">
                         {{csrf_field()}}
                         <div class="form-group row">

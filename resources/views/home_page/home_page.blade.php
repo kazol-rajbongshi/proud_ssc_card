@@ -33,9 +33,7 @@
 
 <div id="wrapper" class="toggled">
     <!-- toggle menu -->
-    <a href="#menu-toggle" class="btn btn-secondary" id="sidebar_toggle">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-    </a>
+    
    
     <div id="page-content-wrapper">
         <div class="container-fluid">
@@ -56,7 +54,7 @@
                     <form action="{{url('search-user')}}" method="post">
                         {{csrf_field()}}
                         <!-- <span><i class="fa fa-search"></i></span> -->
-                        <input type="number" name="search_card" class="form-control" placeholder="Search user by card number" required=""><br>
+                        <input type="text" name="search_card" class="form-control" placeholder="Search user by card number" required=""><br>
                         <button type="submit" class="btn btn-info">Search</button>
                     </form>
 

@@ -530,32 +530,7 @@
         }
 
       }
-         function schedule_action($id){
-          var id = $id;
-          var token = $('meta[name="csrf-token"]').attr('content');
-          // console.log(id);
-          jQuery.ajax({
-            type: "POST",
-            url: "{{URL::to('schedule-action')}}",
-            data: {
-            "_method": 'POST',
-            "_token": token,
-            "id":id
-            },                     
-           success: function(response){
-            if(response.data === 'stop'){
-              // alert('schedule stop');
-              jQuery('#schedule_stop'+response.id).hide();
-              jQuery('#schedule_start'+response.id).show();
-            }else if(response.data === 'start'){
-              // alert('schedule start');
-              jQuery('#schedule_start'+response.id).hide();
-              jQuery('#schedule_stop'+response.id).show();              
-            }
-            
-           }
-          });
-        }       
+                
     </script>
   </head>
   <body class="delivery_setting_page">
@@ -578,7 +553,7 @@
                     <ul class="dropdown-item-holder" style="top: 40px;">                       
                         <li>
                           <a class="dropdown-item" href="{{url('admin-logout')}}" onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">ログアウト</a>
+                             document.getElementById('logout-form').submit();">Logout</a>
                              <form id="logout-form" action="{{url('admin-logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>

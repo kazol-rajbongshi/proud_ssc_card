@@ -33,9 +33,7 @@
 
 <div id="wrapper" class="toggled">
     <!-- toggle menu -->
-    <a href="#menu-toggle" class="btn btn-secondary" id="sidebar_toggle">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-    </a>
+    
 
     <div id="page-content-wrapper">
         <div class="container-fluid">
