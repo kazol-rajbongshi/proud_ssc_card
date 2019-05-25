@@ -59,8 +59,8 @@
 
 
                         <div class="login-holder" style="left: 40%; top: 220%;width: 50%;">
-                            <a href="{{url('card-request-form')}}" class="btn btn-info pull-right"
-                               style="margin-bottom: 10px;">Card Request Form</a><br><br>
+                            <!-- <a href="{{url('card-request-form')}}" class="btn btn-info pull-right"
+                               style="margin-bottom: 10px;">Card Request Form</a><br><br> -->
                             @if(session('card_found_msg'))
                             <div class="alert alert-success">
                                 {{ session('card_found_msg') }}
@@ -90,7 +90,7 @@
                     </div>
 
 
-                <div class="login-holder" style="left: 40%; top: 30%;width: 50%;">
+                 <!--<div class="login-holder" style="left: 40%; top: 30%;width: 50%;">
                     <a href="{{url('card-request-form')}}" class="btn btn-info pull-right" style="margin-bottom: 10px;">Card Request Form</a><br><br>
                     @if(session('card_found_msg'))
                       <div class="alert alert-success">
@@ -105,9 +105,9 @@
                     <form action="{{url('search-user')}}" method="post">
                         {{csrf_field()}}
                         <!-- <span><i class="fa fa-search"></i></span> -->
-                        <input type="text" name="search_card" class="form-control" placeholder="Search user by card number" required=""><br>
+                        <!--<input type="text" name="search_card" class="form-control" placeholder="Search user by card number" required=""><br>
                         <button type="submit" class="btn btn-info">Search</button>
-                    </form>
+                    </form>-->
 
                     <!-- <a href="{{URL::to('user-registration')}}">
                         <button class="btn btn-info btn-lg" style="background-color: #06af94">新規登録</button>
@@ -116,7 +116,7 @@
                         <button class="btn btn-info btn-lg" style="background-color: #06af94">ログイン</button>
                     </a> -->
 
-                </div>
+                <!-- </div>-->
 
 
             </div>

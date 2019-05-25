@@ -45,7 +45,7 @@
                     <!-- <a class="dropdown-item" href="#"></a> -->
                     @if($user->status == 1)
                     <a class="dropdown-item"
-                       href="javaecript:void(0);" onclick="user_change_status({{$user->id}},'active');">Suspend</a>
+                       href="javaecript:void(0);" onclick="user_change_status({{$user->id}},'Suspend');">Suspend</a>
                     @else
                     <a class="dropdown-item"
                        href="javaecript:void(0);" onclick="user_change_status({{$user->id}},'active');">Active</a>
