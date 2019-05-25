@@ -30,7 +30,9 @@
               white-space: nowrap;
           }
 
-
+          .headline{
+              padding: 10px;
+          }
           .mail-box {
               border-collapse: collapse;
               border-spacing: 0;

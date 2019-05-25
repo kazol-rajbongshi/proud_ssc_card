@@ -24,7 +24,7 @@
                     <img src="{{URL::to('assets/img/logo.png')}}" alt="">
                 </a>
             </div>
-            
+
         </div>
 
     </div> -->
@@ -33,11 +33,62 @@
 
 <div id="wrapper" class="toggled">
     <!-- toggle menu -->
-    
-   
+ 
+
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div class="row" style="text-align: center; alignment: center">
+                        <div class="col-md-2">
+                            <div class="header-logo ">
+                                <a class="logo" href="http://proudssc2001bd.com"><img class="logo-img"
+                                                                                      src="http://proudssc2001bd.com/home_assets/img/logo.png"
+                                                                                      alt="Proud S.S.C."></a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-9">
+                            <div class="headline">
+                                <h2>SSC 2001 and HSC 2003 Bangladesh</h2>
+                                <h2>বন্ধুত্ব দৃঢ় হোক সহযোগিতার বন্ধনে</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+
+
+                        <div class="login-holder" style="left: 40%; top: 220%;width: 50%;">
+                            <a href="{{url('card-request-form')}}" class="btn btn-info pull-right"
+                               style="margin-bottom: 10px;">Card Request Form</a><br><br>
+                            @if(session('card_found_msg'))
+                            <div class="alert alert-success">
+                                {{ session('card_found_msg') }}
+                            </div>
+                            @endif
+                            @if(session('card_notfound_msg'))
+                            <div class="alert alert-danger">
+                                {{ session('card_notfound_msg') }}
+                            </div>
+                            @endif
+                            <form action="{{url('search-user')}}" method="post">
+                                {{csrf_field()}}
+                                <!-- <span><i class="fa fa-search"></i></span> -->
+                                <input type="number" name="search_card" class="form-control"
+                                       placeholder="Search user by card number" required=""><br>
+                                <button type="submit" class="btn btn-info">Search</button>
+                            </form>
+
+                            <!-- <a href="{{URL::to('user-registration')}}">
+                                <button class="btn btn-info btn-lg" style="background-color: #06af94">新規登録</button>
+                            </a>
+                            <a href="{{URL::to('user-login')}}">
+                                <button class="btn btn-info btn-lg" style="background-color: #06af94">ログイン</button>
+                            </a> -->
+                        </div>
+
+                    </div>
+
 
                 <div class="login-holder" style="left: 40%; top: 30%;width: 50%;">
                     <a href="{{url('card-request-form')}}" class="btn btn-info pull-right" style="margin-bottom: 10px;">Card Request Form</a><br><br>
@@ -64,12 +115,22 @@
                     <a href="{{URL::to('user-login')}}">
                         <button class="btn btn-info btn-lg" style="background-color: #06af94">ログイン</button>
                     </a> -->
+
                 </div>
+
+
             </div>
         </div>
+        <div class="col-md-2"></div>
 
     </div>
-    <!-- /#page-content-wrapper -->
+
+</div>
+
+</div>
+
+</div>
+<!-- /#page-content-wrapper -->
 </div>
 
 
