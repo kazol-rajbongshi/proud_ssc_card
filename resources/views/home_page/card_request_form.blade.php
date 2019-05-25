@@ -36,12 +36,12 @@
     <a href="#menu-toggle" class="btn btn-secondary" id="sidebar_toggle">
         <i class="fa fa-bars" aria-hidden="true"></i>
     </a>
-   
+
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 form-design">
-                <!-- <div class="login-holder" style="left: 40%; top: 20%;width: 50%;"> -->
+                    <!-- <div class="login-holder" style="left: 40%; top: 20%;width: 50%;"> -->
                     <h3>Card Request Form</h3>
                     @if ($errors->any())
                     <div class="alert alert-danger">
@@ -51,58 +51,65 @@
                             @endforeach
                         </ul>
                     </div>
-                  @endif
-                  @if(session('card_add_success'))
-                  <div class="alert alert-success">
-                    {{ session('card_add_success') }}
-                  </div> 
-                  @endif
-                    <form action="{{url('/save-card-request-information')}}" method="post" enctype="multipart/form-data">
+                    @endif
+                    @if(session('card_add_success'))
+                    <div class="alert alert-success">
+                        {{ session('card_add_success') }}
+                    </div>
+                    @endif
+                    <form action="{{url('/save-card-request-information')}}" method="post"
+                          enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter your SSC name">
-                      </div>
-                      <div class="form-group">
-                        <label for="ssc-roll">S.S.C Roll</label>
-                        <input type="text" name="ssc_roll" class="form-control" id="ssc_roll" placeholder="Enter SSC roll number">
-                      </div>
-                      <div class="form-group">
-                        <label for="ssc-reg">S.S.C Reg</label>
-                        <input type="text" name="ssc_registartion" class="form-control" id="ssc_registartion" placeholder="Enter SSC registration number">
-                      </div>
-                      <div class="form-group">
-                        <label for="ssc-board">S.S.C Board</label>
-                        <select class="form-control" name="ssc_board" id="ssc_board">
-                            <option>Select Board</option>
-                            <option value="barishal">Barishal</option>
-                            <option value="chittagong">Chittagong</option>
-                            <option value="comilla">Comilla</option>
-                            <option value="dhaka">Dhaka</option>
-                            <option value="rajshahi">Rajshahi</option>
-                            <option value="sylhet">Sylhet</option>
-                            <option value="madrasah">Madrasah</option>
-                            <option value="technical">Technical</option>
-                            <option value="dibs">DIBS(Dhaka)</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="address">Address</label>                        
-                        <textarea class="form-control" name="address" id="address" placeholder="Enter card delivery address"></textarea>
-                      </div>
-                      <div class="form-group">
-                        <label for="photo">Photo</label>
-                        <input type="file" name="photo" class="form-control" id="photo">
-                      </div>
-                      <div class="form-group">
-                        <label for="facebooki-name">Facebook Name</label>
-                        <input type="text" name="facebook_name" class="form-control" id="facebook_name" placeholder="Enter facebook name">
-                      </div>
-                      <div class="form-group">
-                        <label for="ssc-reg">Facebook Email</label>
-                        <input type="text" name="facebook_email" class="form-control" id="facebook_email" placeholder="Enter facebook email">
-                      </div>
-                      <button type="submit" class="btn btn-info">Submit</button>
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control" id="name"
+                                   placeholder="Enter your SSC name">
+                        </div>
+                        <div class="form-group">
+                            <label for="ssc-roll">S.S.C Roll</label>
+                            <input type="text" name="ssc_roll" class="form-control" id="ssc_roll"
+                                   placeholder="Enter SSC roll number">
+                        </div>
+                        <div class="form-group">
+                            <label for="ssc-reg">S.S.C Reg</label>
+                            <input type="text" name="ssc_registartion" class="form-control" id="ssc_registartion"
+                                   placeholder="Enter SSC registration number">
+                        </div>
+                        <div class="form-group">
+                            <label for="ssc-board">S.S.C Board</label>
+                            <select class="form-control" name="ssc_board" id="ssc_board">
+                                <option>Select Board</option>
+                                <option value="barishal">Barishal</option>
+                                <option value="chittagong">Chittagong</option>
+                                <option value="comilla">Comilla</option>
+                                <option value="dhaka">Dhaka</option>
+                                <option value="rajshahi">Rajshahi</option>
+                                <option value="sylhet">Sylhet</option>
+                                <option value="madrasah">Madrasah</option>
+                                <option value="technical">Technical</option>
+                                <option value="dibs">DIBS(Dhaka)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea class="form-control" name="address" id="address"
+                                      placeholder="Enter card delivery address"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="photo">Photo</label>
+                            <input type="file" name="photo" class="form-control" id="photo">
+                        </div>
+                        <div class="form-group">
+                            <label for="facebooki-name">Facebook Name</label>
+                            <input type="text" name="facebook_name" class="form-control" id="facebook_name"
+                                   placeholder="Enter facebook name">
+                        </div>
+                        <div class="form-group">
+                            <label for="ssc-reg">Facebook Email</label>
+                            <input type="text" name="facebook_email" class="form-control" id="facebook_email"
+                                   placeholder="Enter facebook email">
+                        </div>
+                        <button type="submit" class="btn btn-info">Submit</button>
 
                     </form>
                 </div>

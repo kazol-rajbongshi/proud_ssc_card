@@ -23,7 +23,7 @@
 
                     @endif
                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
-                        <table class="table table-hover table-bordered">
+                        <table class="table table-hover table-bordered" id="ajax_change_user_list">
                             <thead>
                             <tr>
                                 <th scope="col" class="text-center">#</th>
@@ -63,22 +63,26 @@
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Manage
                                         </button>
+                                        <form action="URL::to('change-user-status')" method="post">
+                                          {{csrf_field()}}
+                                          <meta type="hidden" name="csrf-token" content="{{csrf_token()}}">
                                         <div class="dropdown-menu">
                                             <!-- <a class="dropdown-item" href="#"></a> -->
                                             @if($user->status == 1)
                                             <a class="dropdown-item"
-                                               href="{{url('payment-receive/'.$user->id)}}">Suspend</a>
+                                               href="javaecript:void(0);" onclick="user_change_status({{$user->id}},'Suspend');">Suspend</a>
                                             @else
                                             <a class="dropdown-item"
-                                               href="{{URL::to('create-invoice/'.$user->id)}}"
-                                               target="_blank">Active</a>
+                                               href="javaecript:void(0);" onclick="user_change_status({{$user->id}},'Active');">Active</a>
                                             @endif
                                             <!-- <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">Separated </a>
                                           </div> -->
                                         </div>
+                                    </form>
                                     </div>
                                 </td>
+                                
                             </tr>
                             <?php $i++; ?>
                             @endforeach

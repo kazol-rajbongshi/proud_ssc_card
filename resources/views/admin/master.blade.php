@@ -407,31 +407,120 @@
           .table-wrapper-scroll-y {
             display: block;
             }
+/////////////////////////////////////////
+          body {font-family: Arial, Helvetica, sans-serif;}
 
+          #myImg {
+              border-radius: 5px;
+              cursor: pointer;
+              transition: 0.3s;
+          }
+
+          #myImg:hover {opacity: 0.7;}
+
+          /* The Modal (background) */
+          .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              padding-top: 100px; /* Location of the box */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+          }
+
+          /* Modal Content (image) */
+          .modal-content {
+              margin: auto;
+              display: block;
+              width: 80%;
+              height: 70%;
+              max-width: 700px;
+          }
+
+          /* Caption of Modal Image */
+          #caption {
+              margin: auto;
+              display: block;
+              width: 80%;
+              max-width: 700px;
+              text-align: center;
+              color: #ccc;
+              padding: 10px 0;
+              height: 150px;
+          }
+
+          /* Add Animation */
+          .modal-content, #caption {
+              -webkit-animation-name: zoom;
+              -webkit-animation-duration: 0.6s;
+              animation-name: zoom;
+              animation-duration: 0.6s;
+          }
+
+          @-webkit-keyframes zoom {
+              from {-webkit-transform:scale(0)}
+              to {-webkit-transform:scale(1)}
+          }
+
+          @keyframes zoom {
+              from {transform:scale(0)}
+              to {transform:scale(1)}
+          }
+
+          /* The Close Button */
+          .close {
+              position: absolute;
+              top: 55px;
+              right: 35px;
+              color: #f1f1f1;
+              font-size: 40px;
+              font-weight: bold;
+              transition: 0.3s;
+          }
+
+          .close:hover,
+          .close:focus {
+              color: #bbb;
+              text-decoration: none;
+              cursor: pointer;
+          }
+
+          /* 100% Image Width on Smaller Screens */
+          @media only screen and (max-width: 700px){
+              .modal-content {
+                  width: 100%;
+              }
+          }
       </style>
 
     <script type="text/javascript">
 
-      function suspend_user($id,$status){
+      function user_change_status($id,$status){
 
-        var change_msg = confirm('are you sure to '+$status+' this company?');
+        var change_msg = confirm('are you sure to '+$status+' this user?');
         if(change_msg){
 
           var id = $id;
           var token = $('meta[name="csrf-token"]').attr('content');
-          // console.log(id);
+          console.log(id);
           jQuery.ajax({
             type: "POST",
-            url: "{{URL::to('suspend-company-info')}}",
+            url: "{{URL::to('change-user-status')}}",
             data: {
             "_method": 'POST',
             "_token": token,
             "id":id
             },                     
            success: function(response){
-            $('#ajax_suspend_list').html(response);
-            // console.log(response.data);
             
+              $('#ajax_change_user_list').html(response);
+            // console.log(response.data);
+                       
            }
           });
 
@@ -528,7 +617,7 @@
                 </a>
               @endif
 
-              @if(isset($active_list))
+              @if(isset($active_user_list))
                 <a class="template active" href="{{url('active-users')}}">
                     <!--<span class="sidebar_icon"><img src="{{asset('assets/img/send.png')}}" alt=""></span>-->
                     <i class="fas fa-address-book"></i>
@@ -541,7 +630,21 @@
                     Active
                 </a>
               @endif
-              
+                @if(isset($active_list))
+                <a class="template active" href="{{url('request-form')}}">
+                    <!--<span class="sidebar_icon"><img src="{{asset('assets/img/send.png')}}" alt=""></span>-->
+                    <i class="fas fa-address-book"></i>
+                    Admin
+                </a>
+                @else
+                <a class="template" href="{{url('request-form')}}">
+                    <!--<span class="sidebar_icon"><img src="{{asset('assets/img/send.png')}}" alt=""></span>-->
+                    <i class="fas fa-user"></i>
+                    Admin
+                </a>
+                @endif
+
+
             </div>
 
         </div>

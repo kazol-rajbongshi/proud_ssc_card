@@ -41,12 +41,23 @@
         <div class="container-fluid">
             <div class="row">
 
-                <div class="login-holder" style="left: 40%; top: 20%;width: 50%;">
-                    <a href="{{url('card-request-form')}}" class="btn btn-info pull-right" style="margin-bottom: 10px;">Card Request Form</a>
-                    <form action="" method="post">
+                <div class="login-holder" style="left: 40%; top: 30%;width: 50%;">
+                    <a href="{{url('card-request-form')}}" class="btn btn-info pull-right" style="margin-bottom: 10px;">Card Request Form</a><br><br>
+                    @if(session('card_found_msg'))
+                      <div class="alert alert-success">
+                        {{ session('card_found_msg') }}
+                      </div> 
+                    @endif
+                    @if(session('card_notfound_msg'))
+                      <div class="alert alert-danger">
+                        {{ session('card_notfound_msg') }}
+                      </div> 
+                    @endif
+                    <form action="{{url('search-user')}}" method="post">
                         {{csrf_field()}}
                         <!-- <span><i class="fa fa-search"></i></span> -->
-                        <input type="text" name="search_card" class="form-control" placeholder="Search user by card number">
+                        <input type="number" name="search_card" class="form-control" placeholder="Search user by card number" required=""><br>
+                        <button type="submit" class="btn btn-info">Search</button>
                     </form>
 
                     <!-- <a href="{{URL::to('user-registration')}}">

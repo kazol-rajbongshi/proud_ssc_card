@@ -6,19 +6,15 @@
         <div class="row">
 
             <div class="col-md-12">
-                @if(session('invoice'))
-                <div class="alert alert-success">
-                    {{ session('invoice') }}
-                </div>
-                @endif
+                
                 <div class="progress_view">
                     
                     <h4 class="progress_margin">Pending List</h4>
 
-                    @if(Session('payment_msg'))
+                    @if(Session('extra_info_msg'))
 
                     <div class="alert alert-success">
-                        {{Session('payment_msg')}}
+                        {{Session('extra_info_msg')}}
                     </div>
 
                     @endif
