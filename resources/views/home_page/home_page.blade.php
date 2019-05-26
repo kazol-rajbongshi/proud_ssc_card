@@ -57,12 +57,9 @@
                                 <h2>বন্ধুত্ব দৃঢ় হোক সহযোগিতার বন্ধনে</h2>
                             </div>
                         </div>
-                        <div class="col-md-1"></div>
-
-
-                        <div class="login-holder" style="left: 40%; top: 220%;width: 50%;">
-                            <a href="{{url('card-request-form')}}" class="btn btn-info pull-right"
-                               style="margin-bottom: 10px;">Card Request Form</a><br><br>
+                        <div class="login-holder" style="left: 40%; top: 160%;width: 50%;">
+<!--                            <a href="{{url('card-request-form')}}" class="btn btn-info pull-right"-->
+<!--                               style="margin-bottom: 10px;">Card Request Form</a><br><br>-->
                             @if(session('card_found_msg'))
                             <div class="alert alert-success">
                                 {{ session('card_found_msg') }}
@@ -77,8 +74,8 @@
                                 {{csrf_field()}}
                                 <!-- <span><i class="fa fa-search"></i></span> -->
                                 <input type="number" name="search_card" class="form-control"
-                                       placeholder="Search user by card number" required=""><br>
-                                <button type="submit" class="btn btn-info">Search</button>
+                                       placeholder="Search user by card number" required="" style="margin-left: -20%; width: 170%;"><br>
+                                <button type="submit" style="margin-left: 50%;" class="btn btn-info">Search</button>
                             </form>
 
                             <!-- <a href="{{URL::to('user-registration')}}">

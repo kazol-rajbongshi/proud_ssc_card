@@ -30,7 +30,9 @@ a{
   text-decoration: none !important;
 }
 img{
-    width: 100%;
+
+    max-width: 200px;
+    max-height: 150px;
 }
 /*--top nav --*/
 body {
