@@ -33,9 +33,7 @@
 
 <div id="wrapper" class="toggled">
     <!-- toggle menu -->
-    <a href="#menu-toggle" class="btn btn-secondary" id="sidebar_toggle">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-    </a>
+ 
 
     <div id="page-content-wrapper">
         <div class="container-fluid">
@@ -57,9 +55,13 @@
                                 <h2>বন্ধুত্ব দৃঢ় হোক সহযোগিতার বন্ধনে</h2>
                             </div>
                         </div>
+
                         <div class="login-holder" style="left: 40%; top: 160%;width: 50%;">
 <!--                            <a href="{{url('card-request-form')}}" class="btn btn-info pull-right"-->
 <!--                               style="margin-bottom: 10px;">Card Request Form</a><br><br>-->
+
+
+
                             @if(session('card_found_msg'))
                             <div class="alert alert-success">
                                 {{ session('card_found_msg') }}
@@ -88,7 +90,34 @@
 
                     </div>
 
-                </div>
+
+                 <!--<div class="login-holder" style="left: 40%; top: 30%;width: 50%;">
+                    <a href="{{url('card-request-form')}}" class="btn btn-info pull-right" style="margin-bottom: 10px;">Card Request Form</a><br><br>
+                    @if(session('card_found_msg'))
+                      <div class="alert alert-success">
+                        {{ session('card_found_msg') }}
+                      </div> 
+                    @endif
+                    @if(session('card_notfound_msg'))
+                      <div class="alert alert-danger">
+                        {{ session('card_notfound_msg') }}
+                      </div> 
+                    @endif
+                    <form action="{{url('search-user')}}" method="post">
+                        {{csrf_field()}}
+                        <!-- <span><i class="fa fa-search"></i></span> -->
+                        <!--<input type="text" name="search_card" class="form-control" placeholder="Search user by card number" required=""><br>
+                        <button type="submit" class="btn btn-info">Search</button>
+                    </form>-->
+
+                    <!-- <a href="{{URL::to('user-registration')}}">
+                        <button class="btn btn-info btn-lg" style="background-color: #06af94">新規登録</button>
+                    </a>
+                    <a href="{{URL::to('user-login')}}">
+                        <button class="btn btn-info btn-lg" style="background-color: #06af94">ログイン</button>
+                    </a> -->
+
+                <!-- </div>-->
 
 
             </div>

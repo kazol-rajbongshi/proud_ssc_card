@@ -5,10 +5,21 @@
         <div class="row">
             <div class="col-lg-6 main_content" >
                 <div class="">
+
                     <div style="margin-bottom: 20px;"><h3>User Information</h3></div>
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <div class="form-group row">
 
                             <img id="myImg" src="{{asset('uploads/'.$user_info->photo)}}" alt="{{$user_info->name}}" style="width:200px;height: 200px;margin-left: 15px;">
+
 
                         <div id="myModal" class="modal">
                             <span style="margin-top: 2%;" class="close">&times;</span>
@@ -18,40 +29,52 @@
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Name</label>
+
                         <div class="col-5">
+
                             <input type="text" class="form-control" name="name"
                                    value="{{$user_info->name}}" placeholder="Name" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">SSC Roll</label>
+
                         <div class="col-5">
+
                             <input type="text" class="form-control" name="ssc_roll"
                                    value="{{$user_info->ssc_roll}}" placeholder="Roll No" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">SSC Reg</label>
+
                         <div class="col-5">
+
                             <input type="text" class="form-control" name="ssc_registartion"
                                    value="{{$user_info->ssc_registartion}}" placeholder="Registration No" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Board</label>
+
                         <div class="col-5">
+
                             <input type="text" class="form-control" name="ssc_board"
                                    value="{{$user_info->ssc_board}}" placeholder="Board" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Address</label>
+
                         <div class="col-5">
+
                             <input type="text" class="form-control" name="address"
                                    value="{{$user_info->address}}" placeholder="Address" readonly>
                         </div>
                     </div>
+
                     <hr>
+
                     <form action="{{url('save-extra-info-admin')}}" method="post">
                         {{csrf_field()}}
                         <div class="form-group row">
@@ -72,6 +95,7 @@
                         <button type="submit" class="btn btn-success">Submit</button>
                     </form>
                     <hr>
+
                 </div>
 
             </div>
@@ -80,7 +104,9 @@
 
 
             <div class="col-lg-6 main_content" style="border-left: 2px solid #eae0e0;">
+
                 <iframe src="http://www.educationboardresults.gov.bd/" style="height: 500px;width: 550px">
+
             </div>
 
 

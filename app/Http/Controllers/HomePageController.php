@@ -25,8 +25,8 @@ class HomePageController extends Controller
         $this->validate($request, [
 
             'name' => 'required',
-            'ssc_roll' => 'required',
-            'ssc_registartion' => 'required',
+            'ssc_roll' => 'required|unique:user_information',
+            'ssc_registartion' => 'required|unique:user_information',
             'ssc_board' => 'required',
             'address' => 'required',
             'photo' => 'image|mimes:jpg,jpeg,png,svg',
