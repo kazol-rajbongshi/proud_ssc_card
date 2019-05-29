@@ -1,132 +1,279 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- custom css -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
-    <!-- bootstrap css -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"
-          id="bootstrap-css">
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <title>Card Request Form</title>
+    <!-- metatags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!-- <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    function hideURLbar(){ window.scrollTo(0,1); } </script> -->
+    <!-- Meta tag Keywords -->
+    <!-- css files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('assets/css/registration_css/css/jquery-ui.css')}}"/>
+    <link href="{{asset('assets/css/registration_css/css/style.css')}}" rel="stylesheet" type="text/css" media="all"/>
+    <!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
+
+    <!-- //css files -->
 </head>
-<body class="login-page">
-<!-- top header -->
+<body>
 
-<header>
-    <!-- <div class="container-fluid">
-        <div class="row top_fixed">
-            <div class="header_left logo_top">
-                <a href="{{URL::to('/')}}" class="logo_holder">
-                    <img src="{{URL::to('assets/img/logo.png')}}" alt="">
-                </a>
-            </div>
-            
-        </div>
+<style>
+    img.logo-img {
+        width: 100px;
+    }
 
-    </div> -->
-
-</header>
-
-<div id="wrapper" class="toggled">
-    <!-- toggle menu -->
-    
-
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3 form-design">
-                    <!-- <div class="login-holder" style="left: 40%; top: 20%;width: 50%;"> -->
-                    <h3>Card Request Form</h3>
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
-                    @if(session('card_add_success'))
-                    <div class="alert alert-success">
-                        {{ session('card_add_success') }}
-                    </div>
-                    @endif
-                    <form action="{{url('/save-card-request-information')}}" method="post"
-                          enctype="multipart/form-data">
-                        {{csrf_field()}}
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" class="form-control" id="name"
-                                   placeholder="Enter your SSC name">
-                        </div>
-                        <div class="form-group">
-                            <label for="ssc-roll">S.S.C Roll</label>
-                            <input type="text" name="ssc_roll" class="form-control" id="ssc_roll"
-                                   placeholder="Enter SSC roll number">
-                        </div>
-                        <div class="form-group">
-                            <label for="ssc-reg">S.S.C Reg</label>
-                            <input type="text" name="ssc_registartion" class="form-control" id="ssc_registartion"
-                                   placeholder="Enter SSC registration number">
-                        </div>
-                        <div class="form-group">
-                            <label for="ssc-board">S.S.C Board</label>
-                            <select class="form-control" name="ssc_board" id="ssc_board">
-                                <option>Select Board</option>
-                                <option value="barishal">Barishal</option>
-                                <option value="chittagong">Chittagong</option>
-                                <option value="comilla">Comilla</option>
-                                <option value="dhaka">Dhaka</option>
-                                <option value="rajshahi">Rajshahi</option>
-                                <option value="sylhet">Sylhet</option>
-                                <option value="madrasah">Madrasah</option>
-                                <option value="technical">Technical</option>
-                                <option value="dibs">DIBS(Dhaka)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Address</label>
-                            <textarea class="form-control" name="address" id="address"
-                                      placeholder="Enter card delivery address"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="photo">Photo</label>
-                            <input type="file" name="photo" class="form-control" id="photo">
-                        </div>
-                        <div class="form-group">
-                            <label for="facebooki-name">Facebook Name</label>
-                            <input type="text" name="facebook_name" class="form-control" id="facebook_name"
-                                   placeholder="Enter facebook name">
-                        </div>
-                        <div class="form-group">
-                            <label for="ssc-reg">Facebook Email</label>
-                            <input type="text" name="facebook_email" class="form-control" id="facebook_email"
-                                   placeholder="Enter facebook email">
-                        </div>
-                        <button type="submit" class="btn btn-info">Submit</button>
-
-                    </form>
-                </div>
-                <!-- </div> -->
-            </div>
-        </div>
-
+    .header-logo-reg {
+        text-align: center;
+    }
+</style>
+<div class="header-logo-reg">
+    <div class="header-logo ">
+        <a class="logo" href="http://proudssc2001bd.com"><img class="logo-img"
+                                                              src="http://proudssc2001bd.com/home_assets/img/logo.png"
+                                                              alt="Proud S.S.C."></a>
     </div>
-    <!-- /#page-content-wrapper -->
+</div>
+
+<h1>Card Request Form</h1>
+
+<div class="w3l-main">
+    <div class="w3l-from">
+
+        <form action="{{URL('/save-card-request-information')}}" method="post" enctype="multipart/form-data">
+            {{csrf_field()}}
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            @if(session('card_add_success'))
+            <div class="alert alert-success">
+                {{ session('card_add_success') }}
+            </div>
+            @endif
+            <!--   <div style="float: right; margin-top: -25px">-->
+            <!--	<p class="pull-right"><a href="<?php //echo base_url('user-login');?>" style="color: #fff !important">Login</a></p>-->
+            <!--</div>	-->
+            <div class="w3l-user">
+                <label class="head">Name<span class="w3l-star"> * </span></label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name" required="">
+            </div>
+            <div class="w3l-num">
+                <label class="head">S.S.C Roll Number<span class="w3l-star"> * </span></label>
+                <input type="text" name="ssc_roll" id="ssc_roll" class="form-control" placeholder="S.S.C Roll Number"
+                       required="">
+            </div>
+
+            <div class="w3l-sym">
+                <label class="head">S.S.C Reg. Number<span class="w3l-star"> * </span></label>
+                <input type="text" name="ssc_registartion" id="ssc_registartion" class="form-control"
+                       placeholder="S.S.C Reg. Number" required="">
+            </div>
+
+            <div class="clear"></div>
+            <div class="row">
+                <div class="form-group name1 col-md-6">
+                    <label class="head">Board<span class="w3l-star"> * </span></label>
+                    <select class="category2" name="ssc_board" id="ssc_board" required="" style="width: 100%;height: 50%; border-radius:4px;">
+                        <option value="">Select your board</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                        <option value="Comilla">Comilla</option>
+                        <option value="Jessore">Jessore</option>
+                        <option value="Chittagong">Chittagong</option>
+                        <option value="Barisal">Barisal</option>
+                        <option value="Sylhet">Sylhet</option>
+                        <option value="Dinajpur">Dinajpur</option>
+                        <option value="Madrasah">Madrasah</option>
+                        <option value="Technical">Technical</option>
+                        <option value="DIBS(Dhaka)">DIBS(Dhaka)</option>
+                    </select>
+                </div>
+                <div class="form-group name1 col-md-6">
+                    <label class="head">FB Name Or FB Email<span class="w3l-star"> * </span></label>
+                    <input type="text" name="facebook_email" id="facebook_email" class="form-control"
+                           placeholder="FB Name or FB Email"
+                           required="">
+                </div>
+            </div>
+
+
+            <div class="clear"></div>
+
+            <!-- <div class="w3l-details1">
+                <div class="w3l-num">
+                    <label class="head">SSC(2001) Reg. NO<span class="w3l-star"> * </span></label>
+                    <input type="text" name="sscRegNo" class="form-control" placeholder="Only Visible For Admin" required="">
+                </div>
+                <div class="w3l-sym">
+                    <label class="head">SSC(2001) Roll NO<span class="w3l-star"> * </span></label>
+                    <input type="text" name="sscRollNo" class="form-control" placeholder="Only Visible For Admin" required="">
+                </div>
+
+            <div class="clear"></div>
+            </div> -->
+
+            <!--<div class="w3l-user">-->
+            <!--	<label class="head">Present Address (Optional)</label>-->
+            <!--	<input type="text" name="presentAddress" class="form-control" placeholder="Enter Present Address">-->
+            <!--</div>-->
+
+            <!--<div class="w3l-num">-->
+            <!--	<label class="head">Police Station <span class="w3l-star"> * </span></label>-->
+            <!--	<input type="text"  name="presentpoliceStation" class="form-control" placeholder="Enter Police Station" required="">-->
+            <!--</div>-->
+            <!--<div class="w3l-sym">-->
+            <!--	<label class="head">District<span class="w3l-star"> * </span></label>-->
+            <!--	<input type="text" name="presentdistrict" class="form-control" placeholder="Enter District" required="">-->
+            <!--</div>-->
+            <!--<div class="clear"></div>-->
+
+            <!--<div class="w3l-user">-->
+            <!--	<label class="head">Permanent Address (Optional)</label>-->
+            <!--	<label>Same as Present Address</label>-->
+            <!--	<input type="checkbox" name="address_confirm" value="1" id="address_confirm" class="form-control" placeholder="">-->
+            <!--	<input type="text" name="parmanentAddress" id="parmanentAddress" class="form-control" placeholder="Enter Parmanent Address">-->
+            <!--</div>-->
+
+            <!--<div class="w3l-num">-->
+            <!--	<label class="head">Police Station</label>-->
+            <!--	<input type="text"  name="parmanentpoliceStation" class="form-control" placeholder="Enter Parmanent Police Station" >-->
+            <!--</div>-->
+            <!--<div class="w3l-sym">-->
+            <!--	<label class="head">District</label>-->
+            <!--	<input type="text" name="parmanentdistrict" class="form-control" placeholder="Enter Parmanent District">-->
+            <!--</div>-->
+            <!--<div class="clear"></div>-->
+
+            <div class="w3l-num">
+                <label class="head">Email or Phone Number<span class="w3l-star"> * </span></label>
+                <input type="text" name="facebook_name" id="facebook_name" class="form-control"
+                       placeholder="Email or Phone for Confirmation"
+                       required="">
+            </div>
+            <div class="w3l-num" style="margin-left: 25px;">
+                <label class="head">FB Profile Image</label>
+                <input type="file" name="photo" id="photo" class="form-control" placeholder="" required=""><br>
+            </div>
+            <div class="clear"></div>
+            <div class="w3l-user">
+                <label class="head">Card Delivery Address</label>
+                <input type="text" name="address" id="address" class="form-control" placeholder="Delivery Address">
+            </div>
+
+            <div class="clear"></div>
+            <br>
+
+
+            <div class="btn">
+                <input type="submit" name="submit" value="Submit"/>
+
+            </div>
+
+            <div class="clear"></div>
+
+            <style>
+                .term_link {
+                    cursor: pointer;
+                    color: red;
+                }
+
+                .terms_cond {
+                    visibility: hidden;
+                    height: 0;
+                    opacity: 1;
+                    transition: .5s;
+                    padding: 2em 1em;
+                    color: #f9f9f9;
+                    background-color: #00000021;
+                    text-align: justify;
+                    box-shadow: 2px 2px 10px #56371c;
+                    font-size: 16px;
+                }
+
+                .term_title {
+                    color: red;
+                }
+
+                .term_hide_btn {
+                    background-color: #ffffff;
+                    color: #040404;
+                    padding: .5em 0.5em;
+                    width: 95px;
+                    text-align: center;
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    border: 2px solid #fff;
+                    margin-top: 5px;
+                }
+
+                @media screen and (max-width: 850px) {
+                    .terms_cond {
+                        font-size: 14px;
+                    }
+                }
+
+                @media screen and (max-width: 392px) {
+                    .term_hide_btn {
+                        border: 0px solid #fff;
+                        padding: .3em 0.5em;
+                    }
+                }
+
+            </style>
+
+        </form>
+    </div>
 </div>
 
 
-<!-- jquery core -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<!-- bootstrap js -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<!-- custom js -->
-<script src="{{asset('assets/js/main.js')}}"></script>
+<!--script for terms and conditions section-->
+<script>
+    var termLink, termsCond, techBtnClose;
 
+    termLink = document.getElementById("termLink");
+    termsCond = document.getElementsByClassName('terms_cond');
+    termsHide = document.getElementById('termHide');
+
+    termsHide.addEventListener("click", termsClose);
+    termLink.addEventListener("click", termsOpen);
+
+    function termsOpen() {
+        termsCond[0].style.visibility = "visible";
+        termsCond[0].style.height = '320px';
+        termsCond[0].style.opacity = "1";
+    }
+
+    function termsClose() {
+        termsCond[0].style.visibility = "hidden";
+        termsCond[0].style.height = '0';
+        termsCond[0].style.opacity = "0";
+    }
+</script>
+
+<!-- <script type="text/javascript">
+// 	$(document).ready(function () {
+//     $('#address_confirm').change(function () {
+//         if (!this.checked)
+//         //  ^
+//            $('#parmanentAddress').fadeIn('slow');
+//         else
+//             $('#parmanentAddress').fadeOut('slow');
+//     });
+// });
+
+	$(document).ready(function () {
+    $('#address_confirm').change(function () {
+      $('#parmanentAddress').fadeToggle();
+    });
+});
+</script> -->
 </body>
 </html>
