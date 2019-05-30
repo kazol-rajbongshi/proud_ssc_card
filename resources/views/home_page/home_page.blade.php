@@ -96,10 +96,11 @@
         <div class="card" style="margin-top: 15%;margin-left: 40%;width: 30%">
             <table>
                 <tbody>
-                    <td><img src="{{asset('uploads/'.$card_number->photo)}}" alt="Avatar" style="width: 100%" ></td>
-                    <td><h4><b>{{$card_number->name}}</b></h4>
-                        <p>User is active and verified</p>
-                        <p>{{$card_number->card_number}}</p>
+                    <td><img src="{{asset('uploads/'.$card_number->photo)}}" alt="Avatar" style="width: 150px;" ></td>
+                    <td><h4><b> Name : {{$card_number->name}}</b></h4>
+                        <p>Status : Active</p>
+                        <p>Card NO:{{$card_number->card_number}}</p>
+                        <p>Phone NO:{{$card_number->card_number}}</p>
                     </td>
                 </tbody>
             </table>
