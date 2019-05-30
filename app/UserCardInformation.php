@@ -9,6 +9,6 @@ class UserCardInformation extends Model
 {
     use SoftDeletes;
     protected $table = 'user_information';
-    protected $fillable = ['name','ssc_roll', 'ssc_registartion','ssc_board','address','photo','facebook_name','facebook_email','card_number','validity_period'];
+    protected $fillable = ['name','ssc_roll', 'ssc_registartion','ssc_board','address','photo','facebook_contact','contact','card_number','foreign_friend','validity_period'];
     protected $dates = ['deleted_at'];
 }

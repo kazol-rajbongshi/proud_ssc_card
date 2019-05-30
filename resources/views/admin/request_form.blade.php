@@ -98,21 +98,23 @@
 
                     </div>
                     <div class="form-group row">
-                        <label for="facebook-name"  class="col-3 col-form-label">Facebook Name</label>
+                        <label for="facebook-name"  class="col-3 col-form-label">Facebook Name or Email</label>
                         <div class="col-4">
-                            <input type="text" name="facebook_name" class="form-control" id="facebook_name"
+                            <input type="text" name="facebook_contact" class="form-control" id="facebook_contact"
                                    placeholder="Enter facebook name">
                         </div>
 
                     </div>
                     <div class="form-group row">
-                        <label for="ssc-reg"  class="col-3 col-form-label">Facebook Email</label>
+                        <label for="ssc-reg"  class="col-3 col-form-label">Email or Phone Number</label>
                         <div class="col-4">
-                            <input type="text" name="facebook_email" class="form-control" id="facebook_email"
-                                   placeholder="Enter facebook email">
+                            <input type="text" name="contact" class="form-control" id="contact"
+                                   placeholder="Enter contact number">
                         </div>
 
                     </div>
+                    <input type="checkbox" name="foreign_friend" value="2" placeholder="">
+                    <label class="terms">This card is for foreign friend.</label><br>
                     <button type="submit" class="btn btn-info">Submit</button>
 
                 </form>

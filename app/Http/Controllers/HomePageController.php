@@ -30,8 +30,9 @@ class HomePageController extends Controller
             'ssc_board' => 'required',
             'address' => 'required',
             'photo' => 'image|mimes:jpg,jpeg,png,svg',
-            'facebook_name' => 'required',
-            'facebook_email' => 'required'
+            'facebook_contact' => 'required',
+            'contact' => 'required'
+
         ]);
 
         
@@ -52,7 +53,7 @@ class HomePageController extends Controller
         $update_time = Carbon::now()->addHour(6);
 
         $data = array(
-            array('name' => $request->name, 'ssc_roll' => $request->ssc_roll, 'ssc_registartion' => $request->ssc_registartion, 'ssc_board' => $request->ssc_board,'address' => $request->address, 'photo' => $imageName, 'facebook_name' => $request->facebook_name, 'facebook_email' => $request->facebook_email, 'created_at' => $current_time, 'updated_at' => $update_time)
+            array('name' => $request->name, 'ssc_roll' => $request->ssc_roll, 'ssc_registartion' => $request->ssc_registartion, 'ssc_board' => $request->ssc_board,'address' => $request->address, 'photo' => $imageName, 'facebook_contact' => $request->facebook_contact, 'contact' => $request->contact,'foreign_friend' => $request->foreign_friend, 'created_at' => $current_time, 'updated_at' => $update_time)
         );
 
         $flag = UserCardInformation::insert($data);

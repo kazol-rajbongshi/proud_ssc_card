@@ -99,7 +99,7 @@
                 </div>
                 <div class="form-group name1 col-md-6">
                     <label class="head">FB Name Or FB Email<span class="w3l-star"> * </span></label>
-                    <input type="text" name="facebook_email" id="facebook_email" class="form-control"
+                    <input type="text" name="facebook_contact" id="facebook_contact" class="form-control"
                            placeholder="FB Name or FB Email"
                            required="">
                 </div>
@@ -155,7 +155,7 @@
 
             <div class="w3l-num">
                 <label class="head">Email or Phone Number<span class="w3l-star"> * </span></label>
-                <input type="text" name="facebook_name" id="facebook_name" class="form-control"
+                <input type="text" name="contact" id="contact" class="form-control"
                        placeholder="Email or Phone for Confirmation"
                        required="">
             </div>
@@ -170,6 +170,9 @@
             </div>
 
             <div class="clear"></div>
+            <br>
+            <input type="checkbox" name="foreign_friend" value="2" placeholder="">
+            <label class="terms">I agree that I am requesting card as a foreign friend.</label>
             <br>
             <input type="checkbox" name="terms_and_privacy" value="1" placeholder="" required="">
             <!--<label class="terms">I agree to the<span id="termLink" class="term_link"> <a href="<?php //echo base_url('terms-condition')?>" target="_blank">terms and conditions</a></span><span class="w3l-star"> * </span></label>-->
