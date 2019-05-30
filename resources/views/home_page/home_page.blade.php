@@ -93,14 +93,16 @@
 
             </div>
         @if(isset($card_number))
-        <div class="card" style="margin-top: 15%;margin-left: 40%;width: 20%">
-
-            <div class="container" >
-                <img src="{{asset('uploads/'.$card_number->photo)}}" alt="Avatar" style="width: 100%" >
-                <h4><b>{{$card_number->name}}</b></h4>
-                <p>User is active and verified</p>
-            </div>
-
+        <div class="card" style="margin-top: 15%;margin-left: 40%;width: 30%">
+            <table>
+                <tbody>
+                    <td><img src="{{asset('uploads/'.$card_number->photo)}}" alt="Avatar" style="width: 100%" ></td>
+                    <td><h4><b>{{$card_number->name}}</b></h4>
+                        <p>User is active and verified</p>
+                        <p>{{$card_number->card_number}}</p>
+                    </td>
+                </tbody>
+            </table>
 
         </div>
         @endif
