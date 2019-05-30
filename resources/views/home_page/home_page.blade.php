@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Home</title>
+
+
 </head>
 <body class="login-page">
 <!-- top header -->
@@ -33,7 +35,7 @@
 
 <div id="wrapper" class="toggled">
     <!-- toggle menu -->
- 
+
 
     <div id="page-content-wrapper">
         <div class="container-fluid">
@@ -57,8 +59,6 @@
                         </div>
 
                         <div class="login-holder" style="left: 40%; top: 160%;width: 50%;">
-<!--                            <a href="{{url('card-request-form')}}" class="btn btn-info pull-right"-->
-<!--                               style="margin-bottom: 10px;">Card Request Form</a><br><br>-->
 
 
 
@@ -80,58 +80,38 @@
                                 <button type="submit" style="margin-left: 50%;" class="btn btn-info">Search</button>
                             </form>
 
-                            <!-- <a href="{{URL::to('user-registration')}}">
-                                <button class="btn btn-info btn-lg" style="background-color: #06af94">新規登録</button>
-                            </a>
-                            <a href="{{URL::to('user-login')}}">
-                                <button class="btn btn-info btn-lg" style="background-color: #06af94">ログイン</button>
-                            </a> -->
+
                         </div>
 
                     </div>
 
 
-                 <!--<div class="login-holder" style="left: 40%; top: 30%;width: 50%;">
-                    <a href="{{url('card-request-form')}}" class="btn btn-info pull-right" style="margin-bottom: 10px;">Card Request Form</a><br><br>
-                    @if(session('card_found_msg'))
-                      <div class="alert alert-success">
-                        {{ session('card_found_msg') }}
-                      </div> 
-                    @endif
-                    @if(session('card_notfound_msg'))
-                      <div class="alert alert-danger">
-                        {{ session('card_notfound_msg') }}
-                      </div> 
-                    @endif
-                    <form action="{{url('search-user')}}" method="post">
-                        {{csrf_field()}}
-                        <!-- <span><i class="fa fa-search"></i></span> -->
-                        <!--<input type="text" name="search_card" class="form-control" placeholder="Search user by card number" required=""><br>
-                        <button type="submit" class="btn btn-info">Search</button>
-                    </form>-->
 
-                    <!-- <a href="{{URL::to('user-registration')}}">
-                        <button class="btn btn-info btn-lg" style="background-color: #06af94">新規登録</button>
-                    </a>
-                    <a href="{{URL::to('user-login')}}">
-                        <button class="btn btn-info btn-lg" style="background-color: #06af94">ログイン</button>
-                    </a> -->
-
-                <!-- </div>-->
-
+                </div>
 
             </div>
+
+            </div>
+        @if(isset($card_number))
+        <div class="card" style="margin-top: 15%;margin-left: 40%;width: 30%">
+            <table>
+                <tbody>
+                    <td><img src="{{asset('uploads/'.$card_number->photo)}}" alt="Avatar" style="width: 150px;" ></td>
+                    <td><h4><b> Name : {{$card_number->name}}</b></h4>
+                        <p>Status : Active</p>
+                        <p>Card NO:{{$card_number->card_number}}</p>
+                        <p>Phone NO:{{$card_number->card_number}}</p>
+                    </td>
+                </tbody>
+            </table>
+
         </div>
-        <div class="col-md-2"></div>
+        @endif
+        </div>
 
-    </div>
 
-</div>
 
-</div>
 
-</div>
-<!-- /#page-content-wrapper -->
 </div>
 
 

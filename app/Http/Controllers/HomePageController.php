@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use Carbon\Carbon;
 use DB;
 use App\UserCardInformation;
+use Illuminate\View\View;
 
 class HomePageController extends Controller
 {
@@ -35,7 +36,7 @@ class HomePageController extends Controller
 
         ]);
 
-        
+
 
         $imageName = NULL;
         if (Input::hasFile('photo')) {
@@ -61,16 +62,18 @@ class HomePageController extends Controller
     }
 
     public function searchUser(Request $request){
-        
+
         $card_number = DB::table('user_information')->where([['card_number',$request->search_card],['status',1]])->first();
+
         // echo "<pre>";
         // print_r($card_number);
         // exit();
         if(isset($card_number)){
-            return redirect('/')->with('card_found_msg','User is active and verified');
+//            return redirect('/')->with('card_found_msg','User is active and verified',compact('card_number'));
+            return view('home_page.home_page',compact('card_number'));
         }else{
             return redirect('/')->with('card_notfound_msg','User is inactive and is not verified');
-        }      
+        }
     }
 
 
