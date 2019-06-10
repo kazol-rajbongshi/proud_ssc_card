@@ -174,7 +174,7 @@
             <input type="checkbox" name="terms_and_privacy" value="1" placeholder="" required="">
             <!--<label class="terms">I agree to the<span id="termLink" class="term_link"> <a href="<?php //echo base_url('terms-condition')?>" target="_blank">terms and conditions</a></span><span class="w3l-star"> * </span></label>-->
 
-            <label class="terms">I agree to the<span id="termLink" class="term_link"> terms and conditions for membership</span></label>
+            <label class="terms">I agree to the<span > terms and conditions for membership</span></label>
 
             <div id="termsCond" class="terms_cond">
                 <h2 class="term_title">Terms and Conditions</h2>
@@ -197,7 +197,7 @@
 
             <div class="btn">
                 <br>
-                <input type="submit" name="submit" value="Submit"/>
+                <input type="submit" name="submit" style="margin-top: 85%;" value="Submit"/>
 
             </div>
 
@@ -210,11 +210,11 @@
                 }
 
                 .terms_cond {
-                    visibility: hidden;
+                    /*visibility: hidden;*/
                     height: 0;
                     opacity: 1;
                     transition: .5s;
-                    padding: 2em 1em;
+                    /*padding: 2em 1em;*/
                     color: #f9f9f9;
                     background-color: #00000021;
                     text-align: justify;
