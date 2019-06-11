@@ -27,6 +27,7 @@
 
     .header-logo-reg {
         text-align: center;
+        margin-top: 10px;
     }
 </style>
 <div class="header-logo-reg">
@@ -37,7 +38,8 @@
     </div>
 </div>
 
-<h1>Card Request Form</h1>
+<h1 style="font-size: 30px;line-height: 30px;">SSC 2001 and HSC 2003 Bangladesh</h1>
+<h1 style="line-height: 1px;">Card Request Form</h1>
 
 <div class="w3l-main">
     <div class="w3l-from">

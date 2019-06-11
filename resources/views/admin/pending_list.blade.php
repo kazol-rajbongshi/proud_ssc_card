@@ -25,6 +25,7 @@
                                 <th scope="col" class="text-center">#</th>
                                 <th scope="col" class="text-center">Photo</th>
                                 <th scope="col" class="text-center">Name</th>
+                                <th scope="col" class="text-center">Contact</th>
                                 <th scope="col" class="text-center">Address</th>
                                 <th scope="col" class="text-center">Action</th>
 
@@ -46,6 +47,7 @@
                                 <td class="text-center">{{$i}}</td>
                                 <td class="text-center"><a href="{{asset('uploads/'.$user->photo)}}" target="_blank"><img src="{{asset('uploads/'.$user->photo)}}" class="img-responsive" style="width: 50px; height: 50px;border-radius: 50%;"></a></td>
                                 <td class="text-center">{{$user->name}}</td>
+                                <td class="text-center">{{$user->contact}}</td>
                                 <td class="text-center">{{$user->address}}</td>
                                 <td class="text-center">
                                     <a class="btn btn-success" href="{{url('user-details/'.$user->id)}}">Details</a>

@@ -33,7 +33,8 @@
 
 </header>
 
-<div id="wrapper" class="toggled">
+<!-- <div id="wrapper" class="toggled"> -->
+<div id="wrapper">
     <!-- toggle menu -->
 
 
@@ -77,7 +78,7 @@
                                 <!-- <span><i class="fa fa-search"></i></span> -->
                                 <input type="number" name="search_card" class="form-control"
                                        placeholder="Search user by card number" required="" style="margin-left: -20%; width: 170%;"><br>
-                                <button type="submit" style="margin-left: 50%;" class="btn btn-info">Search</button>
+                                <button type="submit" class="btn btn-info" style="background: #f36921 !important;">Search</button>
                             </form>
 
 
@@ -93,15 +94,17 @@
 
             </div>
         @if(isset($card_number))
-        <div class="card" style="margin-top: 15%;margin-left: 40%;width: 30%">
+        <div class="card" style="margin-top: 10%;margin-left: 30%;width: 30%">
             <table>
                 <tbody>
-                    <td><img src="{{asset('uploads/'.$card_number->photo)}}" alt="Avatar" style="width: 150px;" ></td>
-                    <td><h4><b> Name : {{$card_number->name}}</b></h4>
-                        <p>Status : Active</p>
-                        <p>Card NO:{{$card_number->card_number}}</p>
-                        <p>Phone NO:{{$card_number->card_number}}</p>
+                    
+                    <td style="padding-bottom: 35px !important;">
+                        <strong style="margin-left: 5px;">Name : </strong>{{$card_number->name}}<br>
+                        <strong style="margin-left: 5px;">Status : </strong>Active<br>
+                        <strong style="margin-left: 5px;">Card No: </strong>{{$card_number->card_number}}<br>
+                        <strong style="margin-left: 5px;">Contact: </strong>{{$card_number->contact}}<br>
                     </td>
+                    <td><img src="{{asset('uploads/'.$card_number->photo)}}" alt="Avatar" style="width: 160px;height:130px;margin-left: 0%;border: 1px solid green;padding: 1px;" ></td>
                 </tbody>
             </table>
 
