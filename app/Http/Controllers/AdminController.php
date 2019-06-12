@@ -94,6 +94,13 @@ class AdminController extends Controller
 
             $this->validate($request, [
 
+            'name' => 'required',
+            'ssc_roll' => "required|unique:user_information,ssc_roll,$request->user_id",
+            'ssc_registartion' => "required|unique:user_information,ssc_registartion,$request->user_id",
+            'ssc_board' => 'required',
+            'address' => 'required',
+            'facebook_contact' => 'required',
+            'contact' => 'required',
             'card_number' => 'required|unique:user_information',
             'validity_period' => 'required'
             
@@ -102,13 +109,22 @@ class AdminController extends Controller
             $user_id = Session::get('current_admin_id');
             $active_list = 'active';
             $user_info = UserCardInformation::findOrFail($request->user_id);
+
+            $user_info->name = $request->name;
+            $user_info->ssc_roll = $request->ssc_roll;
+            $user_info->ssc_registartion = $request->ssc_registartion;
+            $user_info->ssc_board = $request->ssc_board;
+            $user_info->address = $request->address;
+            $user_info->facebook_contact = $request->facebook_contact;
+            $user_info->contact = $request->contact;
+
             $user_info->card_number = $request->card_number;
             $user_info->validity_period = $request->validity_period;
             $user_info->status = 1;
             $user_info->save();
             return redirect('/pending-users')->with('extra_info_msg','User information updated successfully.');
         }else{
-            return redirect('/');
+            return redirect('/admin');
         }
     }
 
@@ -190,6 +206,57 @@ class AdminController extends Controller
         $flag = UserCardInformation::insert($data);
         return redirect('request-form')->with('card_add_success','Card request send successfully !');
     }
+
+    public function editUser($id){
+        if ($this->is_admin_login_check() != null) {
+
+            $active_user_list = 'active';
+            $user_info = UserCardInformation::findOrFail($id);
+            $main_content = view('admin.edit_active_user_list',compact('user_info'));
+            return view('admin.master',compact('main_content','active_user_list'));
+        }else{
+            return redirect('/admin');
+        }
+    }
+
+    public function updateActiveUser(Request $request,$id){
+        if ($this->is_admin_login_check() != null) {
+
+            $this->validate($request, [
+
+            'name' => 'required',
+            'ssc_roll' => "required|unique:user_information,ssc_roll,$id",
+            'ssc_registartion' => "required|unique:user_information,ssc_registartion,$id",
+            'ssc_board' => 'required',
+            'address' => 'required',
+            'facebook_contact' => 'required',
+            'contact' => 'required',
+            'card_number' => "required|unique:user_information,card_number,$id",
+            'validity_period' => 'required'
+            
+        ]);
+
+            $user_id = Session::get('current_admin_id');
+            $active_list = 'active';
+            $user_info = UserCardInformation::findOrFail($id);
+
+            $user_info->name = $request->name;
+            $user_info->ssc_roll = $request->ssc_roll;
+            $user_info->ssc_registartion = $request->ssc_registartion;
+            $user_info->ssc_board = $request->ssc_board;
+            $user_info->address = $request->address;
+            $user_info->facebook_contact = $request->facebook_contact;
+            $user_info->contact = $request->contact;
+
+            $user_info->card_number = $request->card_number;
+            $user_info->validity_period = $request->validity_period;
+            $user_info->save();
+            return redirect('/active-users')->with('user_edit_info_msg','User information updated successfully.');
+        }else{
+            return redirect('/admin');
+        }
+    }
+
 
     /**
      * Store a newly created resource in storage.

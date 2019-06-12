@@ -54,6 +54,7 @@
                     <a class="dropdown-item"
                        href="javaecript:void(0);" onclick="user_change_status({{$user->id}},'active');">Active</a>
                     @endif
+                    <a class="dropdown-item" href="{{url('edit-user/'.$user->id)}}" class="btn btn-success">Edit</a>
                     <!-- <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Separated </a>
                   </div> -->

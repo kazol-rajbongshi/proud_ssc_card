@@ -35,6 +35,8 @@ Route::post('/search-user','HomePageController@searchUser');
 
 Route::get('/request-form','AdminController@RequestForm');
 Route::post('/save-request-form','AdminController@saveRequestInformation');
+Route::get('/edit-user/{id}','AdminController@editUser');
+Route::post('/update-active-user/{id}','AdminController@updateActiveUser');
 
 
 

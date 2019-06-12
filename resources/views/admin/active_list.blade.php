@@ -22,6 +22,13 @@
                     </div>
 
                     @endif
+                    @if(Session('user_edit_info_msg'))
+
+                    <div class="alert alert-success">
+                        {{Session('user_edit_info_msg')}}
+                    </div>
+
+                    @endif
                     <div class="table-wrapper-scroll-y my-custom-scrollbar">
                         <table class="table table-hover table-bordered" id="ajax_change_user_list">
                             <thead>
@@ -79,6 +86,8 @@
                                             <a class="dropdown-item"
                                                href="javaecript:void(0);" onclick="user_change_status({{$user->id}},'Active');">Active</a>
                                             @endif
+                                            <a class="dropdown-item"
+                                               href="{{url('edit-user/'.$user->id)}}" class="btn btn-success">Edit</a>
                                             <!-- <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">Separated </a>
                                           </div> -->

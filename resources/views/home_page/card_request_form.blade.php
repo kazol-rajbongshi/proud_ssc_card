@@ -85,18 +85,18 @@
                     <label class="head">Board<span class="w3l-star"> * </span></label>
                     <select class="category2" name="ssc_board" id="ssc_board" required=""
                             style="width: 100%;height: 50%; border-radius:4px;">
-                        <option value="">Select your board</option>
-                        <option value="Dhaka">Dhaka</option>
-                        <option value="Rajshahi">Rajshahi</option>
-                        <option value="Comilla">Comilla</option>
-                        <option value="Jessore">Jessore</option>
-                        <option value="Chittagong">Chittagong</option>
-                        <option value="Barisal">Barisal</option>
-                        <option value="Sylhet">Sylhet</option>
-                        <option value="Dinajpur">Dinajpur</option>
-                        <option value="Madrasah">Madrasah</option>
-                        <option value="Technical">Technical</option>
-                        <option value="DIBS(Dhaka)">DIBS(Dhaka)</option>
+                        <option value="">Select Board</option>
+                        <option value="dhaka">Dhaka</option>
+                        <option value="rajshahi">Rajshahi</option>
+                        <option value="comilla">Comilla</option>
+                        <option value="jessore">Jessore</option>
+                        <option value="chittagong">Chittagong</option>
+                        <option value="barisal">Barisal</option>
+                        <option value="sylhet">Sylhet</option>
+                        <option value="dinajpur">Dinajpur</option>
+                        <option value="madrasah">Madrasah</option>
+                        <option value="technical">Technical</option>
+                        <option value="dibs">DIBS(Dhaka)</option>
                     </select>
                 </div>
                 <div class="form-group name1 col-md-6">
@@ -168,7 +168,7 @@
             <div class="clear"></div>
             <div class="w3l-user">
                 <label class="head">Card Delivery Address</label>
-                <input type="text" name="address" id="address" class="form-control" placeholder="Delivery Address">
+                <input type="text" name="address" id="address" class="form-control" placeholder="Card Delivery/Parcel Address">
             </div>
 
             <div class="clear"></div>
@@ -186,13 +186,13 @@
                 <p>১. ফর্মে দেয়া তথ্য যাচাই করে এসএসসি ২০০১ ব্যাচের নিশ্চিত হয়ে কার্ড ইস্যু করা হবে। কার্ডের নির্ধারিত
                     মূল্য ৫০০/- টাকা। <br>
                     ২. কার্ডের মেয়াদকাল ইস্যুর তারিখ হতে পরবর্তী ১ বছর।<br>
-                    ৩. এসএসসি ২০০১ ও এইচএসসি ২০০৩ বাংলাদেশ" গ্রুপ ব্যতীত একি রকম অন্যকোন গ্রুপের সদস্য থাকলে এই কার্ড
-                    ইস্যু করা হবে না। সুতরাং তা যাচাই বাছাই করে দেখা হবে।<br>
-                    ৪. কার্ড হস্তান্তর যোগ্য নয়।<br>
-                    ৫. কার্ড হারালে বা নষ্ট হলে সাথে সাথে জানাতে হবে। তাহলে উক্ত নাম্বারের কার্ডটি ডিএক্টিভেট করে দেয়া
+                    <!-- ৩. এসএসসি ২০০১ ও এইচএসসি ২০০৩ বাংলাদেশ" গ্রুপ ব্যতীত একি রকম অন্যকোন গ্রুপের সদস্য থাকলে এই কার্ড
+                    ইস্যু করা হবে না। সুতরাং তা যাচাই বাছাই করে দেখা হবে।<br> -->
+                    ৩. কার্ড হস্তান্তর যোগ্য নয়।<br>
+                    ৪. কার্ড হারালে বা নষ্ট হলে সাথে সাথে জানাতে হবে। তাহলে উক্ত নাম্বারের কার্ডটি ডিএক্টিভেট করে দেয়া
                     হবে। <br>
-                    ৬.গ্রুপের সদস্য ব্যতিত কাউকে কার্ড ইস্যু করা হবে না। <br>
-                    ৭. কোন কারনে গ্রুপের নিয়ম ভংগ, বিশৃংখলা সৃষ্টির জন্য গ্রুপ এর সদস্য তালিকা থেকে বাদ দেয়া হলে এবং
+                    ৫.গ্রুপের সদস্য ব্যতিত কাউকে কার্ড ইস্যু করা হবে না। <br>
+                    ৬. কোন কারনে গ্রুপের নিয়ম ভংগ, বিশৃংখলা সৃষ্টির জন্য গ্রুপ এর সদস্য তালিকা থেকে বাদ দেয়া হলে এবং
                     উল্লেখিত শর্তের কোন একটি শর্ত ভংগ হলে ইস্যুকৃত কার্ড অকার্যকর করে দেয়া হবে। </p>
 
                 <p id="termHide" class="term_hide_btn" hidden></p>

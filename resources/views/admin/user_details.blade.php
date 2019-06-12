@@ -27,13 +27,17 @@
                             <div id="caption"></div>
                         </div>
                     </div>
+
+                    <form action="{{url('save-extra-info-admin')}}" method="post">
+                        {{csrf_field()}}
+
                     <div class="form-group row">
                         <label class="col-2 col-form-label">Name</label>
 
                         <div class="col-5">
 
                             <input type="text" class="form-control" name="name"
-                                   value="{{$user_info->name}}" placeholder="Name" readonly>
+                                   value="{{$user_info->name}}" placeholder="Name" required="">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -42,7 +46,7 @@
                         <div class="col-5">
 
                             <input type="text" class="form-control" name="ssc_roll"
-                                   value="{{$user_info->ssc_roll}}" placeholder="Roll No" readonly>
+                                   value="{{$user_info->ssc_roll}}" placeholder="Roll No" required="">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -51,7 +55,7 @@
                         <div class="col-5">
 
                             <input type="text" class="form-control" name="ssc_registartion"
-                                   value="{{$user_info->ssc_registartion}}" placeholder="Registration No" readonly>
+                                   value="{{$user_info->ssc_registartion}}" placeholder="Registration No" required="">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -59,8 +63,22 @@
 
                         <div class="col-5">
 
-                            <input type="text" class="form-control" name="ssc_board"
-                                   value="{{$user_info->ssc_board}}" placeholder="Board" readonly>
+                            <!-- <input type="text" class="form-control" name="ssc_board"
+                                   value="{{$user_info->ssc_board}}" placeholder="Board" readonly> -->
+                            <select class="form-control" name="ssc_board" id="ssc_board" required="">
+                               <option value="">Select Board</option>
+                                <option value="dhaka"<?=$user_info->ssc_board == 'dhaka' ? ' selected="selected"' : '';?>>Dhaka</option>
+                                <option value="rajshahi"<?=$user_info->ssc_board == 'rajshahi' ? ' selected="selected"' : '';?>>Rajshahi</option>
+                                <option value="comilla"<?=$user_info->ssc_board == 'comilla' ? ' selected="selected"' : '';?>>Comilla</option>
+                                <option value="jessore"<?=$user_info->ssc_board == 'jessore' ? ' selected="selected"' : '';?>>Jessore</option>
+                                <option value="chittagong"<?=$user_info->ssc_board == 'chittagong' ? ' selected="selected"' : '';?>>Chittagong</option>
+                                <option value="barisal"<?=$user_info->ssc_board == 'barisal' ? ' selected="selected"' : '';?>>Barisal</option>
+                                <option value="sylhet"<?=$user_info->ssc_board == 'sylhet' ? ' selected="selected"' : '';?>>Sylhet</option>
+                                <option value="dinajpur"<?=$user_info->ssc_board == 'dinajpur' ? ' selected="selected"' : '';?>>Dinajpur</option>
+                                <option value="madrasah"<?=$user_info->ssc_board == 'madrasah' ? ' selected="selected"' : '';?>>Madrasah</option>
+                                <option value="technical"<?=$user_info->ssc_board == 'technical' ? ' selected="selected"' : '';?>>Technical</option>
+                                <option value="dibs"<?=$user_info->ssc_board == 'dibs' ? ' selected="selected"' : '';?>>DIBS(Dhaka)</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -68,27 +86,46 @@
 
                         <div class="col-5">
 
-                            <input type="text" class="form-control" name="address"
-                                   value="{{$user_info->address}}" placeholder="Address" readonly>
+                            <!-- <input type="text" class="form-control" name="address"
+                                   value="{{$user_info->address}}" placeholder="Address" readonly> -->
+                            <textarea class="form-control" name="address" id="address"
+                                      placeholder="Enter card delivery address" required="">{{$user_info->address}}</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Facebook Name or Email</label>
+
+                        <div class="col-5">
+
+                            <input type="text" class="form-control" name="facebook_contact"
+                                   value="{{$user_info->facebook_contact}}" placeholder="Enter facebook name" required="">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Email or Phone Number</label>
+
+                        <div class="col-5">
+
+                            <input type="text" class="form-control" name="contact"
+                                   value="{{$user_info->contact}}" placeholder="Enter contact number" required="">
                         </div>
                     </div>
 
                     <hr>
 
-                    <form action="{{url('save-extra-info-admin')}}" method="post">
-                        {{csrf_field()}}
+                    
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Card No</label>
                             <div class="col-5">
                                 <input type="text" class="form-control" name="card_number"
-                                       value="" placeholder="Card No">
+                                       value="" placeholder="Card No" required="">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-2 col-form-label">Validity</label>
                             <div class="col-5">
                                 <input type="date" class="form-control" name="validity_period"
-                                       value="">
+                                       value="" required="">
                             </div>
                         </div>
                         <input type="hidden" name="user_id" value="{{$id}}">
